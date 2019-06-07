@@ -12,7 +12,7 @@ namespace Service
     public class Serializer
     {
 
-        public string dir = @"D:\JSONTest";
+        public string dir = @"D:\JSONTest.txt";
 
         public int Save(Task obj)
         {
@@ -22,7 +22,7 @@ namespace Service
                 string sex = JsonConvert.SerializeObject(obj);
                 JsonSerializer ser = new JsonSerializer();
                 //File.WriteAllText()
-                using (StreamWriter file = File.CreateText(dir))
+                using (StreamWriter file = File.AppendText(dir))
                 {
                     ser.Serialize(file, obj);
                 }
